@@ -33,7 +33,6 @@
      
       <v-btn
         icon
-        @click.stop="clipped = !clipped"
         to="/Form" nuxt
       >
         <v-icon>mdi-application</v-icon>

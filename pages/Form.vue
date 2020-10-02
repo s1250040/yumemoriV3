@@ -5,14 +5,6 @@
         <v-form ref="form">
           <v-container>
             <v-row> 
-              <!-- <vue-timepicker
-                hour-label="時"
-                minute-label="分"
-                v-model="newTime"
-                close-on-complete
-                format="HH:mm"
-                id="time"
-              ></vue-timepicker> -->
             </v-row>
             <v-row>
               <v-text-field 
