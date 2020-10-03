@@ -1,154 +1,106 @@
 <template>
-  <v-row>
-   <v-col>
-      <v-card class="form">
-        <v-form ref="form">
-          <v-container>
-            <v-row> 
-            </v-row>
-            <v-row>
-              <v-text-field 
-              placeholder 
-              v-model="newMaxPressure" 
-              label="収縮期血圧" 
-              outlined="true" 
-              class="pressure" 
-              clearable
-              counter="3"
-              ></v-text-field>
-              <v-text-field 
-              placeholder 
-              v-model="newMinPressure" 
-              label="拡張期血圧" 
-              outlined="true" 
-              class="pressure" 
-              clearable
-              counter="3"
-              ></v-text-field>
-            </v-row>
-            <v-row>
-              <v-text-field 
-              placeholder 
-              v-model="newHeart" 
-              label="心拍数" 
-              outlined="true" 
-              clearable
-              counter="3"
-              ></v-text-field>
-            </v-row>
-            <v-row>
-              <v-text-field 
-              placeholder 
-              v-model="newTemp" 
-              label="体温" 
-              outlined="true" 
-              clearable
-              counter="4"
-              ></v-text-field>
-            </v-row>
-             <v-row>
-              <v-text-field 
-              placeholder 
-              v-model="newSpO2" 
-              label="SpO2" 
-              outlined="true" 
-              clearable
-              counter="2"
-              ></v-text-field>
-            </v-row>
-            <v-row>
-              <v-text-field
-                placeholder="特記事項があれば入力してください"
-                v-model="newNote"
-                label="特記事項"
-                outlined="true"
-                clearable
-              ></v-text-field>
-            </v-row>
-            <v-btn color="primary" @click="add">確定</v-btn>
-          </v-container>
-        </v-form>
-      </v-card>
-    </v-col>
-  </v-row>
+  <div class="container">
+  <!-- <table class="table is-narrow">
+    <thead>
+        <tr>
+            <th>user</th>
+            <th>time</th>
+            <th>sbp</th>
+            <th>dbp</th>
+            <th>bt</th>
+            <th>hr</th>
+            <th>spo2</th>
+            <th>note</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="user in $store.getters.getUsers" :key="user.user">
+            <td>{{user.user}}</td>
+            <td>{{user.time}}</td>
+            <td>{{user.sbp}}</td>
+            <td>{{user.dbp}}</td>
+            <td>{{user.bt}}</td>
+            <td>{{user.hr}}</td>
+            <td>{{user.spo2}}</td>
+            <td>{{user.note}}</td>
+        </tr>
+    </tbody>
+   </table> -->
+
+    <div class="field is-grouped">
+     <p class="control is-expanded">
+       <input v-model="newUser" class="input" type="text" placeholder="user">
+     </p>
+     <p class="control is-expanded">
+       <input v-model="newTime" class="input" type="text" placeholder="time">
+     </p>
+     <p class="control is-expanded">
+       <input v-model="newSbp" class="input" type="text" placeholder="sbp">
+     </p>
+     <p class="control is-expanded">
+       <input v-model="newDbp" class="input" type="text" placeholder="dbp">
+     </p>
+     <p class="control is-expanded">
+       <input v-model="newBt" class="input" type="text" placeholder="bt">
+     </p>
+     <p class="control is-expanded">
+       <input v-model="newHr" class="input" type="text" placeholder="hr">
+     </p>
+     <p class="control is-expanded">
+       <input v-model="newSpo2" class="input" type="text" placeholder="spo2">
+     </p>
+     <p class="control is-expanded">
+       <input v-model="newNote" class="input" type="text" placeholder="note">
+     </p>
+     <p class="control">
+      <a class="button is-primary" @click="addUser">
+         add
+      </a>
+     </p>
+   </div>
+
+  </div>
 </template>
 
 <script>
-// import VueTimepicker from "vue2-timepicker";
-// import "vue2-timepicker/dist/VueTimepicker.css";
-
 export default {
   data() {
     return {
-     newMaxPressure: "",
-      newMinPressure: "",
-      newTemp: "",
-      newHeart: "",
-      newSpO2: "",
-      newNote: "",
-      newTime: "",
-      data: [
-        {
-          maxPressure: "130",
-          minPressure: "65",
-          temp: "36.5",
-          heart: "100",
-          SpO2: "98",
-          note: "あああああ",
-          time: "01:11"
-        },
-        {
-          maxPressure: "135",
-          minPressure: "70",
-          temp: "36.8",
-          heart: "111",
-          SpO2: "99",
-          note: "あaあああ",
-          time: "02:00"
-        }
-      ]
-    };
-  },
-  methods: {
-    add: function() {
-      if (confirm("確定してもよろしいですか？")) {
-        this.data.push({
-          maxPressure: this.newMaxPressure,
-          minPressure: this.newMinPressure,
-          temp: this.newTemp,
-          heart: this.newHeart,
-          SpO2: this.newSpO2,
-          note: this.newNote,
-          time: this.newTime
-        });
-        this.newMaxPressure = "";
-        this.newMinPressure = "";
-        this.newHeart = "";
-        this.newTemp = "";
-        this.newSpO2 = "";
-        this.newNote = "";
-      }
+      newUser: '',
+      newTime: '',
+      newSbp: '',
+      newDbp: '',
+      newBt: '',
+      newHr: '',
+      newSpo2: '',
+      newNote: '',
     }
   },
+  methods: {
+    addUser() {
+      const user = this.newUser
+      const time = this.newTime
+      const sbp = this.newSbp
+      const dbp = this.newDbp
+      const bt = this.newBt
+      const hr = this.newHr
+      const spo2 = this.newSpo2
+      const note = this.newNote
 
-  components: {
-    // "vue-timepicker": VueTimepicker
-  }
-};
+      this.$store.dispatch('addUser', {user, time, sbp, dbp, bt, hr, spo2, note})
+      this.newUser = ''
+      this.newTime = ''
+      this.newSbp = ''
+      this.newDbp = ''
+      this.newBt = ''
+      this.newHr = ''
+      this.newSpo2 = ''
+      this.newNote = ''
+      }
+   },
+//    created() {
+//     this.$store.dispatch('fetchUsers')
+//    }
+}
 </script>
-
-<style>
-.form {
-  padding: 30px;
-}
-.pressure {
-  padding: 10px;
-}
-
-#time {
-  margin: 20px;
-}
-
-
-</style>
 

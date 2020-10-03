@@ -13,12 +13,12 @@
 
       <template v-slot:extension>
         <v-tabs
-          v-model="model"
+          v-model="tabs"
+          fixed-tabs
         >
-          <!-- fixed-tabs -->
           <v-tabs-slider></v-tabs-slider>
           <v-tab
-            href="#tab-1"
+            href="#mobile-tabs-5-1"
             class="primary--text"
           >
             <!-- <v-icon>mdi-phone</v-icon> -->
@@ -26,7 +26,7 @@
           </v-tab>
 
           <v-tab
-            href="#tab-2"
+            href="#mobile-tabs-5-2"
             class="primary--text"
           >
             <!-- <v-icon>mdi-heart</v-icon> -->
@@ -34,21 +34,21 @@
           </v-tab>
 
           <v-tab
-            href="#tab-3"
+            href="#mobile-tabs-5-3"
             class="primary--text"
           >
             <!-- <v-icon>mdi-account-box</v-icon> -->
             心拍
           </v-tab>
           <v-tab
-            href="#tab-4"
+            href="#mobile-tabs-5-4"
             class="primary--text"
           >
            
             体温
           </v-tab>
           <v-tab
-            href="#tab-5"
+            href="#mobile-tabs-5-5"
             class="primary--text"
           >
            
@@ -58,24 +58,16 @@
       </template>
     </v-toolbar>
 
-    <v-tabs-items v-model="model">
-      <v-tab-item value="tab-1">
-    
+    <v-tabs-items v-model="tabs">
+      <v-tab-item
+        v-for="i in 5"
+        :key="i"
+        :value="'mobile-tabs-5-' + i"
+      >
+        <v-card flat>
+            
           <sleepstagechart/>
-        睡眠のグラフなど
-      </v-tab-item>
-      <v-tab-item value="tab-2">
-        血圧のグラフ
-      </v-tab-item>
-      <v-tab-item value="tab-3">
-        心拍数のグラフ
-      </v-tab-item>
-      <v-tab-item value="tab-4">
-        体温のグラフ
-      </v-tab-item>
-      <v-tab-item value="tab-5">
-        <formrecord/>
-       記録の一覧
+        </v-card>
       </v-tab-item>
     </v-tabs-items>
     <div>
@@ -90,11 +82,10 @@
 
 <script>
 import sleepstagechart from "../components/SleepStage";
-import formrecord from "../components/FormRecord";
 export default {
     data() {
         return {
-           model: 'tab-1'
+           
     };
     },
     methods: {
@@ -107,7 +98,6 @@ export default {
       },  
     components:{
         sleepstagechart,
-        formrecord,
     }
 };
 </script>

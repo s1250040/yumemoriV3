@@ -65,7 +65,7 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Home',
+          title: '1F',
           to: '/Home'
         }
       ],

@@ -42,7 +42,7 @@
 export default {
   data(){
     return{
-      isActive: false,
+      isActive: true,
       users: [
         {
           id: '1',
