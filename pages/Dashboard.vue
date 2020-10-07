@@ -14,8 +14,8 @@
       <template v-slot:extension>
         <v-tabs
           v-model="model"
+          fixed-tabs
         >
-          <!-- fixed-tabs -->
           <v-tabs-slider></v-tabs-slider>
           <v-tab
             href="#tab-1"
@@ -60,22 +60,24 @@
 
     <v-tabs-items v-model="model">
       <v-tab-item value="tab-1">
-    
-          <sleepstagechart/>
         睡眠のグラフなど
+        <sleepstagechart/>
       </v-tab-item>
       <v-tab-item value="tab-2">
         血圧のグラフ
+        <bpc/>
       </v-tab-item>
       <v-tab-item value="tab-3">
         心拍数のグラフ
+        <hrc/>
       </v-tab-item>
       <v-tab-item value="tab-4">
         体温のグラフ
+        <btc/>
       </v-tab-item>
       <v-tab-item value="tab-5">
-        <formrecord/>
        記録の一覧
+        <formrecord/>
       </v-tab-item>
     </v-tabs-items>
     <div>
@@ -91,6 +93,10 @@
 <script>
 import sleepstagechart from "../components/SleepStage";
 import formrecord from "../components/FormRecord";
+import btc from "../components/BodyTempretureChart";
+import bpc from "../components/BloodPressureChart";
+import hrc from "../components/HeartRateChart";
+
 export default {
     data() {
         return {
@@ -108,6 +114,9 @@ export default {
     components:{
         sleepstagechart,
         formrecord,
+        btc,
+        bpc,
+        hrc,
     }
 };
 </script>

@@ -32,22 +32,22 @@
        <input v-model="newUser" class="input" type="text" placeholder="user">
      </p>
      <p class="control is-expanded">
-       <input v-model="newTime" class="input" type="text" placeholder="time">
+       <input v-model="newTime" class="input" type="datetime-local" placeholder="time">
      </p>
      <p class="control is-expanded">
-       <input v-model="newSbp" class="input" type="text" placeholder="sbp">
+       <input v-model="newSbp" class="input" type="number" placeholder="sbp">
      </p>
      <p class="control is-expanded">
-       <input v-model="newDbp" class="input" type="text" placeholder="dbp">
+       <input v-model="newDbp" class="input" type="number" placeholder="dbp">
      </p>
      <p class="control is-expanded">
-       <input v-model="newBt" class="input" type="text" placeholder="bt">
+       <input v-model="newBt" class="input" type="number" placeholder="bt">
      </p>
      <p class="control is-expanded">
-       <input v-model="newHr" class="input" type="text" placeholder="hr">
+       <input v-model="newHr" class="input" type="number" placeholder="hr">
      </p>
      <p class="control is-expanded">
-       <input v-model="newSpo2" class="input" type="text" placeholder="spo2">
+       <input v-model="newSpo2" class="input" type="number" placeholder="spo2">
      </p>
      <p class="control is-expanded">
        <input v-model="newNote" class="input" type="text" placeholder="note">
