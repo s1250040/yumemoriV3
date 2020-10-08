@@ -32,22 +32,22 @@
        <input v-model="newUser" class="input" type="text" placeholder="user">
      </p>
      <p class="control is-expanded">
-       <input v-model="newTime" class="input" type="datetime-local" placeholder="time">
+       <input v-model="newTime" class="input" type="text" placeholder="time">
      </p>
      <p class="control is-expanded">
-       <input v-model="newSbp" class="input" type="number" placeholder="sbp">
+       <input v-model.number="newSbp" class="input" type="number" placeholder="sbp">
      </p>
      <p class="control is-expanded">
-       <input v-model="newDbp" class="input" type="number" placeholder="dbp">
+       <input v-model.number="newDbp" class="input" type="number" placeholder="dbp">
      </p>
      <p class="control is-expanded">
-       <input v-model="newBt" class="input" type="number" placeholder="bt">
+       <input v-model.number="newBt" class="input" type="number" placeholder="bt">
      </p>
      <p class="control is-expanded">
-       <input v-model="newHr" class="input" type="number" placeholder="hr">
+       <input v-model.number="newHr" class="input" type="number" placeholder="hr">
      </p>
      <p class="control is-expanded">
-       <input v-model="newSpo2" class="input" type="number" placeholder="spo2">
+       <input v-model.number="newSpo2" class="input" type="number" placeholder="spo2">
      </p>
      <p class="control is-expanded">
        <input v-model="newNote" class="input" type="text" placeholder="note">
@@ -63,16 +63,17 @@
 </template>
 
 <script>
+import firebase from '~/plugins/firebase'
 export default {
   data() {
     return {
-      newUser: '',
-      newTime: '',
-      newSbp: '',
-      newDbp: '',
-      newBt: '',
-      newHr: '',
-      newSpo2: '',
+      newUser: '千葉照子',
+      newTime: firebase.firestore.Timestamp.fromDate(new Date(2020, 9, 5)),
+      newSbp: 110,
+      newDbp: 70,
+      newBt: 36.0,
+      newHr: 70,
+      newSpo2: 95,
       newNote: '',
     }
   },
@@ -96,6 +97,15 @@ export default {
       this.newHr = ''
       this.newSpo2 = ''
       this.newNote = ''
+      
+      // this.newUser = user
+      // this.newTime = time
+      // this.newSbp = sbp
+      // this.newDbp = dbp
+      // this.newBt = bt
+      // this.newHr = hr
+      // this.newSpo2 = spo2
+      // this.newNote = note
       }
    },
 //    created() {
